@@ -65,10 +65,10 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		pieces = new JLabel(new ImageIcon("WhiteKnight.png"));
 		panels = (JPanel) chessBoard.getComponent(6);
 		panels.add(pieces);
-		pieces = new JLabel(new ImageIcon("WhiteBishup.png"));
+		pieces = new JLabel(new ImageIcon("WhiteBishop.png"));
 		panels = (JPanel) chessBoard.getComponent(2);
 		panels.add(pieces);
-		pieces = new JLabel(new ImageIcon("WhiteBishup.png"));
+		pieces = new JLabel(new ImageIcon("WhiteBishop.png"));
 		panels = (JPanel) chessBoard.getComponent(5);
 		panels.add(pieces);
 		pieces = new JLabel(new ImageIcon("WhiteKing.png"));
@@ -94,10 +94,10 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		pieces = new JLabel(new ImageIcon("BlackKnight.png"));
 		panels = (JPanel) chessBoard.getComponent(62);
 		panels.add(pieces);
-		pieces = new JLabel(new ImageIcon("BlackBishup.png"));
+		pieces = new JLabel(new ImageIcon("BlackBishop.png"));
 		panels = (JPanel) chessBoard.getComponent(58);
 		panels.add(pieces);
-		pieces = new JLabel(new ImageIcon("BlackBishup.png"));
+		pieces = new JLabel(new ImageIcon("BlackBishop.png"));
 		panels = (JPanel) chessBoard.getComponent(61);
 		panels.add(pieces);
 		pieces = new JLabel(new ImageIcon("BlackKing.png"));
@@ -342,12 +342,26 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		}
 
 		/*****************************************************************************************************************************************/
-		/* King ****************************************************************************************************************************/
+		/* Bishop ****************************************************************************************************************************/
 		/*****************************************************************************************************************************************/
-		else if (pieceName.contains("King")) { //one square at a time
-			validMove = true;
-			
-			
+		else if (pieceName.contains("Bishop")) { //one square at a time any where on the board
+			//can move in a diagonal space
+			if (((xMovement > 0) && (yMovement > 0)) || ((xMovement < 0) && (yMovement < 0))) {
+
+				if (!piecePresent(e.getX(), e.getY())) {
+					validMove = true;
+				} else {
+					if (pieceName.contains("White")) {
+						if (checkWhiteOponent(e.getX(), e.getY())) {
+							validMove = true;
+						}
+					} else {
+						if (checkBlackOponent(e.getX(), e.getY())) {
+							validMove = true;
+						}
+					}
+				}
+			}
 		}
 
 		/*****************************************************************************************************************************************/
