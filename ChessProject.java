@@ -207,6 +207,13 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		int xMovement = Math.abs((e.getX() / 75) - startX);
 		int yMovement = Math.abs((e.getY() / 75) - startY);
 
+		System.out.println("------------------------------------------------");
+		System.out.println("The piece that is being moved is : " +pieceName);
+		System.out.println("Then starting coordinates are: "+"("+startX+","+startY+")");
+		System.out.println("The xMovement is : "+xMovement);
+		System.out.println("The yMovement is : "+yMovement);
+		System.out.println("Then Landing coordinates are: "+"("+landingX+","+landingY+")");
+		System.out.println("------------------------------------------------");
 
 
 		/*
@@ -339,6 +346,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		/*****************************************************************************************************************************************/
 		else if (pieceName.contains("King")) { //one square at a time
 			validMove = true;
+			
+			
 		}
 
 		/*****************************************************************************************************************************************/
