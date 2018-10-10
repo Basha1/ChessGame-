@@ -133,6 +133,10 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		String tmp1 = awaitingPiece.getIcon().toString();
 		if (((tmp1.contains("Black")))) {
 			oponent = true;
+			if (((tmp1.contains("King")))) {//show message saying White wins
+				JOptionPane.showMessageDialog(null, "White Wins");
+				System.exit(0);
+			}
 		} else {
 			oponent = false;
 		}
@@ -149,6 +153,10 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		String tmp1 = awaitingPiece.getIcon().toString();
 		if (((tmp1.contains("White")))) {
 			oponent = true;
+			if (((tmp1.contains("King")))) {//show message saying White wins
+				JOptionPane.showMessageDialog(null, "Black Wins");
+				System.exit(0);
+			}
 		} else {
 			oponent = false;
 		}
