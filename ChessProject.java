@@ -235,7 +235,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			if (startY == 1) {
 				if (((yMovement == 1) || (yMovement == 2)) && (startY < landingY) && (xMovement == 0)) {
 					if (yMovement == 2) {
-						if ((!piecePresent(e.getX(), e.getY())) && (!piecePresent(e.getX(), (e.getY() + 75)))) {
+						if ((!piecePresent(e.getX(), e.getY())) && (!piecePresent(e.getX(), (e.getY() - 75)))) {
 							validMove = true;
 						}
 					} else {
